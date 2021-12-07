@@ -20,46 +20,48 @@ public class Blockchain {
         this.minerReward = 50;
         this.blockSize = 10;
     }// </editor-fold>
-
+    
     // <editor-fold defaultstate="collapsed" desc="Getters & Setters">
-    public ArrayList<Block> getBlockchain() {
+    
+    public static ArrayList<Block> getBlockchain() {
         return Blockchain;
     }
 
-    public void setBlockchain(ArrayList<Block> Blockchain) {
-        this.Blockchain = Blockchain;
+    public static void setBlockchain(ArrayList<Block> Blockchain) {
+        Blockchain = Blockchain;
     }
 
-    public ArrayList<Transaction> getTransactions() {
+    public static ArrayList<Transaction> getTransactions() {
         return Transactions;
     }
 
-    public void setTransactions(ArrayList<Transaction> Transactions) {
-        this.Transactions = Transactions;
+    public static void setTransactions(ArrayList<Transaction> Transactions) {
+        Transactions = Transactions;
     }
 
-    public int getDifficulty() {
+    public static int getDifficulty() {
         return difficulty;
     }
 
-    public void setDifficulty(int difficulty) {
-        this.difficulty = difficulty;
+    public static void setDifficulty(int difficulty) {
+        difficulty = difficulty;
     }
 
-    public int getMinerReward() {
+    public static int getMinerReward() {
         return minerReward;
     }
 
-    public void setMinerReward(int minerReward) {
-        this.minerReward = minerReward;
+    public static void setMinerReward(int minerReward) {
+        minerReward = minerReward;
     }
 
-    public int getBlockSize() {
+    public static int getBlockSize() {
         return blockSize;
     }
+
     
-    public void setBlockSize(int blockSize) {    
-        this.blockSize = blockSize;
+    public static void setBlockSize(int blockSize) {    
+        blockSize = blockSize;
     }
 
     // </editor-fold>

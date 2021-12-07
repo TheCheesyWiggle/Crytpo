@@ -6,32 +6,29 @@
 package crytpo;
 
 import java.util.ArrayList;
+import java.util.Scanner;
 
 /**
  *
  * @author Finn
  */
 public class Crytpo {
+    
+    //intializing arraylists 
+    //public static ArrayList<Block> Blockchain = new ArrayList<Block>();
+    public static ArrayList<Transaction> transactionPool = new ArrayList<Transaction> ();
 
-    /**
-     * @param args the command line arguments
-     */
+    
+    
     public static void main(String[] args) {
-        // TODO code application logic here
-        //intializing arraylists        
-        ArrayList<Block> chain = new ArrayList<Block>();
-        ArrayList<Transaction> pendingTransactions = new ArrayList<Transaction> ();
+        menu();
         
-        
-        
-        //testing wallets
-        Wallet walletA;
-        Wallet Miner;
-        walletA = new Wallet();
-	Miner = new Wallet();
+        /*
+        Wallet walletA = new Wallet();
         walletA.generateKeyPair();
-        Miner.generateKeyPair();
-                
+        Wallet miner= new Wallet();
+        miner.generateKeyPair();
+        
         System.out.println(respository.getStringFromKey(walletA.publickey));
         System.out.println("///////////////////////////////////");
         System.out.println(respository.getStringFromKey(walletA.privatekey));
@@ -58,10 +55,61 @@ public class Crytpo {
             System.out.println(Blockchain.getBlockchain().get(i).toString());
             for(int j = 0; j<Blockchain.getBlockchain().get(i).getTranscation().size();j++){
                 System.out.println(Blockchain.getBlockchain().get(i).getTranscation().get(i).toString());
+        
             }
         }
         
         System.out.println("Length: "+Blockchain.getBlockchain().size());
+        */
     }
     
+    public static void menu(){
+        System.out.println("|--------------------------|"
+                       + "\n| >>------> Menu <------<< |"
+                       + "\n|--------------------------|"
+                       + "\n| 1)  Menu                 |"
+                       + "\n| 2)  Mine                 |"
+                       + "\n| 3)  Generate wallet      |"
+                       + "\n| 4)  Display Blockchain   |"
+                       + "\n| 5)  View wallet Balance  |"
+                       + "\n| 6)  Quit                 |"
+                       + "\n|--------------------------|");
+        System.out.println("Enter the number corresponding to your choice: ");
+        try{
+            Scanner input = new Scanner(System.in);
+            int userInput = input.nextInt();
+            switch(userInput){
+                case 1:
+                    menu();
+                    break;
+                case 2:
+                    System.out.println("Double check to make sure you enter the correct address");
+                    System.out.println("Enter wallet address:");
+                    String walletAddress = input.next();
+                    Blockchain.minePendingTransactions(transactionPool , walletAddress); 
+                    break;
+                case 3:
+                    //generates wallet
+                    Wallet walletA = new Wallet();
+                    walletA.generateKeyPair();
+                    //outputs public and private key
+                    System.out.println("Public Key: "+respository.getStringFromKey(walletA.publickey)
+                        +"\nPrivate Key: "+respository.getStringFromKey(walletA.privatekey));
+                    break;
+                case 4:
+                    System.out.println("4");
+                    break;
+                case 5:
+                    System.out.println("5");
+                    break;
+                case 6:
+                    System.exit(0);
+                    break;
+            }
+        }catch(Exception e){
+            System.out.println(e);
+            System.exit(0);
+        }
+        
+    }
 }
