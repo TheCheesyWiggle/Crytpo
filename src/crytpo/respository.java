@@ -12,6 +12,7 @@ import java.security.PublicKey;
 import java.security.Signature;
 import java.security.spec.X509EncodedKeySpec;
 import java.util.Base64;
+import java.util.Scanner;
 
 /**
  *
@@ -67,5 +68,15 @@ public class respository {
         } catch (Exception e) {
             throw new RuntimeException(e);
         }
+    }
+    
+    static public int userinputInt(){
+        Scanner input = new Scanner(System.in);
+        return input.nextInt();
+    }
+    
+    static public String userinputString(){
+        Scanner input = new Scanner(System.in);
+        return input.next();
     }
 }
